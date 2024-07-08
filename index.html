@@ -1,201 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VITO Rewards Program</title>
     <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        font-family: 'Poppins', sans-serif;
-        text-align: center;
-        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/bns/uzo/4a7/50--savings__mailing__background.png');
-        background-position: center top;
-        background-repeat: repeat;
-        background-size: 100% auto;
-      }
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-image: url('https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/bns/uzo/4a7/50--savings__mailing__background.png');
+            background-position: center top;
+            background-repeat: repeat;
+            background-size: 100% auto;
+        }
 
-      .container {
-        width: 600px;
-        margin: 20px auto;
-        background-color: #ffffff;
-        color: #333;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-      .title-section {
-        background-color: #000;
-        color: #ffdd00;
-        padding: 20px;
-        border-radius: 8px 8px 0 0;
-      }
+        .title-section {
+            background-color: #000;
+            color: #ffdd00;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
 
-      .title-section h1 {
-        font-size: 34px;
-        font-weight: 900;
-        font-style: italic;
-        margin: 0;
-      }
+        .title-section h1 {
+            font-size: 34px;
+            font-weight: 900;
+            font-style: italic;
+            margin: 0;
+        }
 
-      .title-section p {
-        margin: 10px 0 0 0;
-        font-size: 18px;
-        color: #ffdd00;
-      }
+        .title-section p {
+            margin: 10px 0 0 0;
+            font-size: 18px;
+            color: #ffdd00;
+        }
 
-      h2 {
-        font-size: 28px;
-        font-weight: 700;
-        color: #333;
-        margin-top: 30px;
-        margin-bottom: 20px;
-      }
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
 
-      .form-group {
-        margin: 10px 0;
-      }
+        .form-group {
+            margin: 10px 0;
+        }
 
-      .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 600;
-        color: #333;
-      }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
 
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        text-align: center;
-        border: 1px solid #333;
-        border-radius: 4px;
-      }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
 
-      .form-group button,
-      .call-button,
-      .text-testimonial-button {
-        display: inline-block;
-        width: 45%;
-        padding: 10px;
-        background: #ffdd00;
-        color: #000;
-        border: none;
-        cursor: pointer;
-        border-radius: 40px;
-        margin: 1rem auto;
-        font-size: 16px;
-        font-weight: 700;
-        font-style: italic;
-        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-        text-decoration: none;
-      }
+        .form-group button,
+        .call-button,
+        .text-testimonial-button {
+            display: inline-block;
+            width: 45%;
+            padding: 10px;
+            background: #ffdd00;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 40px;
+            margin: 1rem auto;
+            font-size: 16px;
+            font-weight: 700;
+            font-style: italic;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
 
-      .form-group button:hover,
-      .call-button:hover,
-      .text-testimonial-button:hover {
-        background: #333;
-        color: #ffdd00;
-      }
+        .form-group button:hover,
+        .call-button:hover,
+        .text-testimonial-button:hover {
+            background: #333;
+            color: #ffdd00;
+        }
 
-      p {
-        line-height: 1.7rem;
-        margin-bottom: 4rem;
-        color: #666;
-      }
+        p {
+            line-height: 1.7rem;
+            margin-bottom: 4rem;
+            color: #666;
+        }
 
-      .contact-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-      }
+        .contact-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
 
-      .break--line {
-        margin-top: 5rem;
-        max-width: 100%;
-      }
+        .break--line {
+            margin-top: 5rem;
+            max-width: 100%;
+        }
 
-      .section-image {
-        width: 100%;
-        height: auto;
-      }
+        .section-image {
+            width: 100%;
+            height: auto;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container">
-      <div class="title-section">
-        <h1>Thank You From the VITO Team</h1>
-        <p>Join our free rewards program and earn great rewards by sharing your feedback!</p>
-      </div>
+        <div class="title-section">
+            <h1>Thank You From the VITO Team</h1>
+            <p>Join our free rewards program and earn great rewards by sharing your feedback!</p>
+        </div>
 
-      <div class="section">
-        <h2>Business Information</h2>
-        <div class="form-group">
-          <label for="business-name">Business Name:</label>
-          <input type="text" id="business-name" name="business-name" required>
+        <div class="section">
+            <h2>Business Information</h2>
+            <div class="form-group">
+                <label for="business-name">Business Name:</label>
+                <input type="text" id="business-name" name="business-name" required>
+            </div>
+            <div class="form-group">
+                <label for="business-address">Business Address:</label>
+                <input type="text" id="business-address" name="business-address" required>
+            </div>
+            <div class="form-group">
+                <label for="manager-name">Manager/Reviewer Name:</label>
+                <input type="text" id="manager-name" name="manager-name" required>
+            </div>
+            <div class="form-group">
+                <label for="business-phone">Phone Number:</label>
+                <input type="tel" id="business-phone" name="business-phone" required>
+            </div>
+            <div class="form-group">
+                <label for="business-email">Email</label>
+                <input type="email" id="business-email" name="business-email" required>
+            </div>
+            <div class="form-group">
+                <label for="vito-serial-number">VITO Serial Number</label>
+                <input type="text" id="vito-serial-number" name="vito-serial-number" required>
+            </div>
+            
         </div>
-        <div class="form-group">
-          <label for="business-address">Business Address:</label>
-          <input type="text" id="business-address" name="business-address" required>
-        </div>
-        <div class="form-group">
-          <label for="manager-name">Manager/Reviewer Name:</label>
-          <input type="text" id="manager-name" name="manager-name" required>
-        </div>
-        <div class="form-group">
-          <label for="business-phone">Phone Number:</label>
-          <input type="tel" id="business-phone" name="business-phone" required>
-        </div>
-      </div>
 
-      <div class="section">
-        <h2>1. Google Review</h2>
-        <p>Leave a review on Google and upload a screenshot to get a free 10pc particle filter sleeve.</p>
-        <div class="form-group">
-          <label for="google-review-screenshot">Upload Screenshot:</label>
-          <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*" required>
+        <div class="section">
+            <h2>1. Google Review</h2>
+            <p>Leave a review on Google and upload a screenshot to get a free 10pc particle filter sleeve.</p>
+            <div class="form-group">
+                <label for="google-review-screenshot">Upload Screenshot:</label>
+                <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*"
+                    required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Google Review</button>
+            </div>
         </div>
-        <div class="form-group">
-          <button type="submit">Submit Google Review</button>
-        </div>
-      </div>
 
-      <div class="section">
-        <h2>2. Phone Testimonial</h2>
-        <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to receive a free 10pc particle filter sleeve.</p>
-        <div class="form-group">
-          <label for="phone-testimonial-text">Write your testimonial:</label>
-          <textarea id="phone-testimonial-text" name="phone-testimonial-text" rows="4" required></textarea>
+        <div class="section">
+            <h2>2. Phone Testimonial</h2>
+            <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to
+                receive a free 10pc particle filter sleeve.</p>
+            <div class="form-group">
+                <label for="phone-testimonial-text">Write your testimonial:</label>
+                <textarea id="phone-testimonial-text" name="phone-testimonial-text" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone-testimonial-confirmation">Did you call us?</label>
+                <input type="checkbox" id="phone-testimonial-confirmation" name="phone-testimonial-confirmation"
+                    required>
+            </div>
+            <div class="form-group contact-buttons">
+                <a href="tel:+18478590398" class="call-button">Call Us Now</a>
+                <button type="submit" class="text-testimonial-button">Submit Text Testimonial</button>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="phone-testimonial-confirmation">Did you call us?</label>
-          <input type="checkbox" id="phone-testimonial-confirmation" name="phone-testimonial-confirmation" required>
-        </div>
-        <div class="form-group contact-buttons">
-          <a href="tel:+18478590398" class="call-button">Call Us Now</a>
-          <button type="submit" class="text-testimonial-button">Submit Text Testimonial</button>
-        </div>
-      </div>
 
-      <div class="section">
-        <h2>3. Video Testimonial</h2>
-        <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get a free 100pc particle filter sleeve ($270 value).</p>
-        <div class="form-group">
-          <label for="video-testimonial-video">Upload Video:</label>
-          <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*" required>
+        <div class="section">
+            <h2>3. Video Testimonial</h2>
+            <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get a
+                free 100pc particle filter sleeve ($270 value).</p>
+            <div class="form-group">
+                <label for="video-testimonial-video">Upload Video:</label>
+                <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*"
+                    required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Video Testimonial</button>
+            </div>
         </div>
-        <div class="form-group">
-          <button type="submit">Submit Video Testimonial</button>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
 
 </html>
