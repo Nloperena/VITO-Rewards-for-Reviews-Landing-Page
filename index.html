@@ -161,55 +161,158 @@
                 <label for="vito-serial-number">VITO Serial Number</label>
                 <input type="text" id="vito-serial-number" name="vito-serial-number" required>
             </div>
-            
+
         </div>
 
         <div class="section">
-            <h2>1. Google Review</h2>
-            <p>Leave a review on Google and upload a screenshot to get a free 10pc particle filter sleeve.</p>
-            <div class="form-group">
-                <label for="google-review-screenshot">Upload Screenshot:</label>
-                <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*"
-                    required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit Google Review</button>
-            </div>
+            <form onsubmit=submitBusinessInfo(event)>
+                <h2>1. Google Review</h2>
+                <p>Leave a review on Google and upload a screenshot to get a free 10pc particle filter sleeve.</p>
+                <div class="form-group">
+                    <label for="google-review-screenshot">Upload Screenshot:</label>
+                    <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*"
+                        required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Google Review</button>
+                </div>
+            </form>
         </div>
 
         <div class="section">
-            <h2>2. Phone Testimonial</h2>
-            <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to
-                receive a free 10pc particle filter sleeve.</p>
-            <div class="form-group">
-                <label for="phone-testimonial-text">Write your testimonial:</label>
-                <textarea id="phone-testimonial-text" name="phone-testimonial-text" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="phone-testimonial-confirmation">Did you call us?</label>
-                <input type="checkbox" id="phone-testimonial-confirmation" name="phone-testimonial-confirmation"
-                    required>
-            </div>
-            <div class="form-group contact-buttons">
-                <a href="tel:+18478590398" class="call-button">Call Us Now</a>
-                <button type="submit" class="text-testimonial-button">Submit Text Testimonial</button>
-            </div>
+            <form onsubmit=submitBusinessInfo(event)>
+                <h2>2. Phone Testimonial</h2>
+                <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to
+                    receive a free 10pc particle filter sleeve.</p>
+                <div class="form-group">
+                    <label for="phone-testimonial-text">Write your testimonial:</label>
+                    <textarea id="phone-testimonial-text" name="phone-testimonial-text" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phone-testimonial-confirmation">Did you call us?</label>
+                    <input type="checkbox" id="phone-testimonial-confirmation" name="phone-testimonial-confirmation"
+                        required>
+                </div>
+                <div class="form-group contact-buttons">
+                    <a href="tel:+18478590398" class="call-button">Call Us Now</a>
+                    <button type="submit" class="text-testimonial-button">Submit Text Testimonial</button>
+                </div>
+            </form>
         </div>
 
         <div class="section">
-            <h2>3. Video Testimonial</h2>
-            <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get a
-                free 100pc particle filter sleeve ($270 value).</p>
-            <div class="form-group">
-                <label for="video-testimonial-video">Upload Video:</label>
-                <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*"
-                    required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit Video Testimonial</button>
-            </div>
+            <form onsubmit=submitBusinessInfo(event)>
+                <h2>3. Video Testimonial</h2>
+                <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get
+                    a
+                    free 100pc particle filter sleeve ($270 value).</p>
+                <div class="form-group">
+                    <label for="video-testimonial-video">Upload Video:</label>
+                    <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*"
+                        required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Video Testimonial</button>
+                </div>
+            </form>
         </div>
     </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
+            measurementId: "YOUR_MEASUREMENT_ID"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+    
+        async function submitBusinessInfo(event) {
+            event.preventDefault();
+            const businessName = document.getElementById('business-name').value;
+            const businessAddress = document.getElementById('business-address').value;
+            const managerName = document.getElementById('manager-name').value;
+            const businessPhone = document.getElementById('business-phone').value;
+            const businessEmail = document.getElementById('business-email').value;
+            const vitoSerialNumber = document.getElementById('vito-serial-number').value;
+    
+            try {
+                await setDoc(doc(db, "businessInfo", vitoSerialNumber), {
+                    businessName,
+                    businessAddress,
+                    managerName,
+                    businessPhone,
+                    businessEmail,
+                    vitoSerialNumber
+                });
+                alert('Business information submitted successfully!');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error submitting information. Please try again.');
+            }
+        }
+    
+        async function submitGoogleReview(event) {
+            event.preventDefault();
+            const googleReviewScreenshot = document.getElementById('google-review-screenshot').files[0];
+    
+            try {
+                const vitoSerialNumber = document.getElementById('vito-serial-number').value;  // Ensure this ID is unique
+                await setDoc(doc(db, "googleReviews", vitoSerialNumber), {
+                    googleReviewScreenshot
+                });
+                alert('Google review submitted successfully!');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error submitting review. Please try again.');
+            }
+        }
+    
+        async function submitPhoneTestimonial(event) {
+            event.preventDefault();
+            const phoneTestimonialText = document.getElementById('phone-testimonial-text').value;
+            const phoneTestimonialConfirmation = document.getElementById('phone-testimonial-confirmation').checked;
+    
+            try {
+                const vitoSerialNumber = document.getElementById('vito-serial-number').value;  // Ensure this ID is unique
+                await setDoc(doc(db, "phoneTestimonials", vitoSerialNumber), {
+                    phoneTestimonialText,
+                    phoneTestimonialConfirmation
+                });
+                alert('Phone testimonial submitted successfully!');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error submitting testimonial. Please try again.');
+            }
+        }
+    
+        async function submitVideoTestimonial(event) {
+            event.preventDefault();
+            const videoTestimonialVideo = document.getElementById('video-testimonial-video').files[0];
+    
+            try {
+                const vitoSerialNumber = document.getElementById('vito-serial-number').value;  // Ensure this ID is unique
+                await setDoc(doc(db, "videoTestimonials", vitoSerialNumber), {
+                    videoTestimonialVideo
+                });
+                alert('Video testimonial submitted successfully!');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error submitting testimonial. Please try again.');
+            }
+        }
+    </script>
+    
 </body>
+
 
 </html>
