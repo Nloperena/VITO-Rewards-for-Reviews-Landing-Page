@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width:800px;
+            max-width: 800px;
             width: 80%;
             margin: 20px auto;
             background-color: #ffdd00;
@@ -36,7 +36,9 @@
             background-color: #000;
             color: #ffdd00;
             padding: 20px;
-            border-radius: 8px 8px 0 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            margin-bottom: 2rem;
         }
 
         .title-section h1 {
@@ -69,11 +71,13 @@
         .form-section:nth-of-type(odd) {
             background-color: #000;
             color: #ffdd00;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
         }
 
         .form-section:nth-of-type(even) {
             background-color: #ffdd00;
             color: #000;
+
         }
 
         h2 {
@@ -147,7 +151,7 @@
         }
 
         .call-button:hover,
-        .text-testimonial-button:hover {
+        .form-group .text-testimonial-button:hover {
             background: #333;
             color: #ffdd00;
         }
@@ -159,21 +163,22 @@
         }
 
         .checkbox-wrapper {
-            display:block;
+            display: block;
             align-items: center;
             font-size: 12px;
-            justify-content: flex-start; /* Aligns the items to the start */
-            gap: 10px; /* Adds space between the checkbox and the text */
+            justify-content: flex-start;
+            gap: 10px;
             margin-top: 2rem;
         }
 
         .form-group .checkbox-wrapper {
-            justify-content: flex-start; /* Aligns the checkboxes to the start of the form group */
+            justify-content: flex-start;
         }
 
         .form-group.checkbox-wrapper input[type="checkbox"] {
-            margin-right: 100px; /* Adds a small space between the checkbox and the text */
+            margin-right: 100px;
         }
+
         .form-section-img {
             width: 20%;
         }
@@ -188,12 +193,13 @@
         </div>
 
         <div class="explanation-section">
-            <p>Submit your review of us, and earn free rewards! Choose one or more of the following options to
-                participate:</p>
+            <p>By submitting your review of our services, you become eligible to receive complimentary rewards. Please
+                select one or more of the following participation options</p>
         </div>
 
         <div class="form-section">
-            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/g09/ucy/2u5/icons-1.png">
+            <img class='form-section-img'
+                src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/g09/ucy/2u5/icons-1.png">
             <h2>Business Information</h2>
             <div class="form-group">
                 <label for="business-name">Business Name:</label>
@@ -231,21 +237,28 @@
                 <input type="text" id="serial-number" name="serial-number" required>
             </div>
             <div class="form-group checkbox-wrapper">
+                <label for="vito-model">TERMS AND CONDITIONS</label>
                 <input type="checkbox" id="agreement-phone-confirm" name="agreement-phone-confirm" required>
-                <label for="agreement-phone-confirm">I agree that the given information/testimonial can be used for advertising purposes, and I cannot return it or get my reward value paid out in money.</label>
+                <label for="agreement-phone-confirm">I hereby acknowledge and consent that the provided information and
+                    testimonial may be utilized for promotional and advertising purposes. I further waive any rights to
+                    retract the submission or claim the reward value in cash or any other form of monetary
+                    compensation.</label>
             </div>
         </div>
 
         <div class="form-section">
-            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/902/kje/ffx/icons-2.png">
+            <img class='form-section-img'
+                src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/902/kje/ffx/icons-2.png">
             <form onsubmit="submitGoogleReview(event)">
                 <h2>1. Google Review</h2>
-                <p>Leave a review on Google and upload a screenshot to get a free 10pc particle filter sleeve.</p>
+                <p>Provide a review on Google and upload a screenshot of the review to receive a complimentary 10-piece
+                    particle filter sleeve.</p>
                 <div class="form-group">
                     <label for="google-review-screenshot">Upload Screenshot:</label>
-                    <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*" required>
+                    <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*"
+                        required>
                 </div>
-             
+
                 <div class="form-group">
                     <button type="submit">Submit</button>
                 </div>
@@ -253,10 +266,12 @@
         </div>
 
         <div class="form-section">
-            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/lxf/qn1/p3h/icons-3.png">
+            <img class='form-section-img'
+                src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/lxf/qn1/p3h/icons-3.png">
             <form onsubmit="submitPhoneTestimonial(event)">
                 <h2>2. Phone Testimonial</h2>
-                <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to receive a free 10pc particle filter sleeve.</p>
+                <p>Contact us at +1 (847) 859-0398 to share your testimonial. Upon completion of the call, submit your
+                    confirmation to receive a complimentary 10-piece particle filter sleeve.</p>
                 <div class="form-group">
                     <label for="phone-testimonial-text">Write your testimonial:</label>
                     <textarea id="phone-testimonial-text" name="phone-testimonial-text" rows="4" required></textarea>
@@ -273,15 +288,18 @@
         </div>
 
         <div class="form-section">
-            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/plh/abz/i27/icons-4.png">
+            <img class='form-section-img'
+                src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/plh/abz/i27/icons-4.png">
             <form onsubmit="submitVideoTestimonial(event)">
                 <h2>3. Video Testimonial</h2>
-                <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get a free 100pc particle filter sleeve ($270 value).</p>
+                <p>Record a 20-25 second video featuring yourself and the VITO machine. Upload the video to receive a
+                    complimentary 100-piece particle filter sleeve (valued at $270).</p>
                 <div class="form-group">
                     <label for="video-testimonial-video">Upload Video:</label>
-                    <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*" required>
+                    <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*"
+                        required>
                 </div>
-                
+
                 <div class="form-group">
                     <button type="submit">Submit</button>
                 </div>
