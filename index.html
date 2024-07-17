@@ -8,25 +8,28 @@
     <style>
         body,
         html {
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
-            background-color: #f4f4f4;
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background-image: url('https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/bns/uzo/4a7/50--savings__mailing__background.png');
-            background-position: center top;
-            background-repeat: repeat;
-            background-size: 100% auto;
+        }
+
+        body {
+            background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/56b/teh/ltl/comic-background.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
 
         .container {
-            width: 600px;
+            max-width:800px;
+            width: 80%;
             margin: 20px auto;
-            background-color: #ffffff;
+            background-color: #ffdd00;
             color: #333;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 800px rgba(0, 0, 0, 9);
         }
 
         .title-section {
@@ -49,12 +52,36 @@
             color: #ffdd00;
         }
 
+        .explanation-section {
+            background-color: #ffdd00;
+            color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            border-radius: 2rem;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .form-section:nth-of-type(odd) {
+            background-color: #000;
+            color: #ffdd00;
+        }
+
+        .form-section:nth-of-type(even) {
+            background-color: #ffdd00;
+            color: #000;
+        }
+
         h2 {
             font-size: 28px;
             font-weight: 700;
-            color: #333;
             margin-top: 30px;
             margin-bottom: 20px;
+            color: inherit;
         }
 
         .form-group {
@@ -65,10 +92,11 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
-            color: #333;
+            color: inherit;
         }
 
         .form-group input,
+        .form-group select,
         .form-group textarea {
             width: 100%;
             padding: 10px;
@@ -78,36 +106,50 @@
             border-radius: 4px;
         }
 
-        .form-group button,
-        .call-button,
-        .text-testimonial-button {
+        .form-group .call-button,
+        .form-group .text-testimonial-button {
             display: inline-block;
-            width: 45%;
+            width: 35%;
             padding: 10px;
             background: #ffdd00;
-            color: #000;
+            color: black;
             border: none;
             cursor: pointer;
             border-radius: 40px;
             margin: 1rem auto;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
             font-style: italic;
             transition: background-color 0.3s, border-color 0.3s, color 0.3s;
             text-decoration: none;
         }
 
-        .form-group button:hover,
+        .form-group button {
+            display: inline-block;
+            width: 35%;
+            padding: 10px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 40px;
+            margin: 1rem auto;
+            font-size: 20px;
+            font-weight: 700;
+            font-style: italic;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+
+        .form-group button:hover {
+            background: #facd0e;
+            color: #000000;
+        }
+
         .call-button:hover,
         .text-testimonial-button:hover {
             background: #333;
             color: #ffdd00;
-        }
-
-        p {
-            line-height: 1.7rem;
-            margin-bottom: 4rem;
-            color: #666;
         }
 
         .contact-buttons {
@@ -116,14 +158,24 @@
             margin-top: 20px;
         }
 
-        .break--line {
-            margin-top: 5rem;
-            max-width: 100%;
+        .checkbox-wrapper {
+            display:block;
+            align-items: center;
+            font-size: 12px;
+            justify-content: flex-start; /* Aligns the items to the start */
+            gap: 10px; /* Adds space between the checkbox and the text */
+            margin-top: 2rem;
         }
 
-        .section-image {
-            width: 100%;
-            height: auto;
+        .form-group .checkbox-wrapper {
+            justify-content: flex-start; /* Aligns the checkboxes to the start of the form group */
+        }
+
+        .form-group.checkbox-wrapper input[type="checkbox"] {
+            margin-right: 100px; /* Adds a small space between the checkbox and the text */
+        }
+        .form-section-img {
+            width: 20%;
         }
     </style>
 </head>
@@ -135,7 +187,13 @@
             <p>Join our free rewards program and earn great rewards by sharing your feedback!</p>
         </div>
 
-        <div class="section">
+        <div class="explanation-section">
+            <p>Submit your review of us, and earn free rewards! Choose one or more of the following options to
+                participate:</p>
+        </div>
+
+        <div class="form-section">
+            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/g09/ucy/2u5/icons-1.png">
             <h2>Business Information</h2>
             <div class="form-group">
                 <label for="business-name">Business Name:</label>
@@ -158,161 +216,78 @@
                 <input type="email" id="business-email" name="business-email" required>
             </div>
             <div class="form-group">
-                <label for="vito-serial-number">VITO Serial Number</label>
-                <input type="text" id="vito-serial-number" name="vito-serial-number" required>
+                <label for="vito-model">VITO Model</label>
+                <select id="vito-model" name="vito-model" required>
+                    <option value="VS">VS</option>
+                    <option value="VM">VM</option>
+                    <option value="VL">VL</option>
+                    <option value="XS">XS</option>
+                    <option value="XM">XM</option>
+                    <option value="XL">XL</option>
+                </select>
             </div>
-
+            <div class="form-group">
+                <label for="serial-number">Serial Number</label>
+                <input type="text" id="serial-number" name="serial-number" required>
+            </div>
+            <div class="form-group checkbox-wrapper">
+                <input type="checkbox" id="agreement-phone-confirm" name="agreement-phone-confirm" required>
+                <label for="agreement-phone-confirm">I agree that the given information/testimonial can be used for advertising purposes, and I cannot return it or get my reward value paid out in money.</label>
+            </div>
         </div>
 
-        <div class="section">
-            <form onsubmit=submitBusinessInfo(event)>
+        <div class="form-section">
+            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/902/kje/ffx/icons-2.png">
+            <form onsubmit="submitGoogleReview(event)">
                 <h2>1. Google Review</h2>
                 <p>Leave a review on Google and upload a screenshot to get a free 10pc particle filter sleeve.</p>
                 <div class="form-group">
                     <label for="google-review-screenshot">Upload Screenshot:</label>
-                    <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*"
-                        required>
+                    <input type="file" id="google-review-screenshot" name="google-review-screenshot" accept="image/*" required>
                 </div>
+             
                 <div class="form-group">
-                    <button type="submit">Submit Google Review</button>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
 
-        <div class="section">
-            <form onsubmit=submitBusinessInfo(event)>
+        <div class="form-section">
+            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/lxf/qn1/p3h/icons-3.png">
+            <form onsubmit="submitPhoneTestimonial(event)">
                 <h2>2. Phone Testimonial</h2>
-                <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to
-                    receive a free 10pc particle filter sleeve.</p>
+                <p>Call us at +1 (847)859-0398 to share your testimonial. After the call, submit your confirmation to receive a free 10pc particle filter sleeve.</p>
                 <div class="form-group">
                     <label for="phone-testimonial-text">Write your testimonial:</label>
                     <textarea id="phone-testimonial-text" name="phone-testimonial-text" rows="4" required></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="phone-testimonial-confirmation">Did you call us?</label>
-                    <input type="checkbox" id="phone-testimonial-confirmation" name="phone-testimonial-confirmation"
-                        required>
+                <div class="form-group checkbox-wrapper">
+                    <input type="checkbox" id="agreement-phone" name="agreement-phone" required>
+                    <label for="agreement-phone">Check to confirm that you called us.</label>
                 </div>
                 <div class="form-group contact-buttons">
                     <a href="tel:+18478590398" class="call-button">Call Us Now</a>
-                    <button type="submit" class="text-testimonial-button">Submit Text Testimonial</button>
+                    <button type="submit" class="text-testimonial-button">Submit</button>
                 </div>
             </form>
         </div>
 
-        <div class="section">
-            <form onsubmit=submitBusinessInfo(event)>
+        <div class="form-section">
+            <img class = 'form-section-img' src="https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/bqgj1n1p/plh/abz/i27/icons-4.png">
+            <form onsubmit="submitVideoTestimonial(event)">
                 <h2>3. Video Testimonial</h2>
-                <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get
-                    a
-                    free 100pc particle filter sleeve ($270 value).</p>
+                <p>Record a 20-25 second video with the VITO machine and yourself in the frame. Upload the video to get a free 100pc particle filter sleeve ($270 value).</p>
                 <div class="form-group">
                     <label for="video-testimonial-video">Upload Video:</label>
-                    <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*"
-                        required>
+                    <input type="file" id="video-testimonial-video" name="video-testimonial-video" accept="video/*" required>
                 </div>
+                
                 <div class="form-group">
-                    <button type="submit">Submit Video Testimonial</button>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
     </div>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
-        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
-    
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID",
-            measurementId: "YOUR_MEASUREMENT_ID"
-        };
-    
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-    
-        async function submitBusinessInfo(event) {
-            event.preventDefault();
-            const businessName = document.getElementById('business-name').value;
-            const businessAddress = document.getElementById('business-address').value;
-            const managerName = document.getElementById('manager-name').value;
-            const businessPhone = document.getElementById('business-phone').value;
-            const businessEmail = document.getElementById('business-email').value;
-            const vitoSerialNumber = document.getElementById('vito-serial-number').value;
-    
-            try {
-                await setDoc(doc(db, "businessInfo", vitoSerialNumber), {
-                    businessName,
-                    businessAddress,
-                    managerName,
-                    businessPhone,
-                    businessEmail,
-                    vitoSerialNumber
-                });
-                alert('Business information submitted successfully!');
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                alert('Error submitting information. Please try again.');
-            }
-        }
-    
-        async function submitGoogleReview(event) {
-            event.preventDefault();
-            const googleReviewScreenshot = document.getElementById('google-review-screenshot').files[0];
-    
-            try {
-                const vitoSerialNumber = document.getElementById('vito-serial-number').value;  // Ensure this ID is unique
-                await setDoc(doc(db, "googleReviews", vitoSerialNumber), {
-                    googleReviewScreenshot
-                });
-                alert('Google review submitted successfully!');
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                alert('Error submitting review. Please try again.');
-            }
-        }
-    
-        async function submitPhoneTestimonial(event) {
-            event.preventDefault();
-            const phoneTestimonialText = document.getElementById('phone-testimonial-text').value;
-            const phoneTestimonialConfirmation = document.getElementById('phone-testimonial-confirmation').checked;
-    
-            try {
-                const vitoSerialNumber = document.getElementById('vito-serial-number').value;  // Ensure this ID is unique
-                await setDoc(doc(db, "phoneTestimonials", vitoSerialNumber), {
-                    phoneTestimonialText,
-                    phoneTestimonialConfirmation
-                });
-                alert('Phone testimonial submitted successfully!');
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                alert('Error submitting testimonial. Please try again.');
-            }
-        }
-    
-        async function submitVideoTestimonial(event) {
-            event.preventDefault();
-            const videoTestimonialVideo = document.getElementById('video-testimonial-video').files[0];
-    
-            try {
-                const vitoSerialNumber = document.getElementById('vito-serial-number').value;  // Ensure this ID is unique
-                await setDoc(doc(db, "videoTestimonials", vitoSerialNumber), {
-                    videoTestimonialVideo
-                });
-                alert('Video testimonial submitted successfully!');
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                alert('Error submitting testimonial. Please try again.');
-            }
-        }
-    </script>
-    
 </body>
-
 
 </html>
